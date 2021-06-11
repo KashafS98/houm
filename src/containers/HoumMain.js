@@ -14,7 +14,8 @@ const Wrapper = styled.div`
         display: flex;
         flex-direction:column;
         align-items: flex-start;
-        width: 45%;
+        width: 60%;
+        padding: 5% 0;
         h1{
             text-transform: uppercase;
             ${headingOne};
@@ -22,15 +23,16 @@ const Wrapper = styled.div`
             span {
                 color: ${red};
             }
+            margin-bottom: 5%;
         }
     }
     .content-section{
-        width: 45%;
+        width: 40%;
         padding: 3% 0% 3% 6%;
         p{
             font-size: 24px;
             text-align: left;
-            width: 65%;
+            width: 80%;
             line-height: 40px;
         }
     }

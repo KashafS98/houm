@@ -27,6 +27,7 @@ const Menu = styled.div`
     hr{
         width: 100%;
         border: 2px solid ${red};
+        background: ${red}
     }
 `
 
@@ -34,7 +35,7 @@ const menu = [
     {
         key: 1,
         name: 'Features',
-        link: '#',
+        link: '#features',
     },
     {
         key: 2,

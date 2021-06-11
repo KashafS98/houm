@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { IconContext } from "react-icons";
-import { FiPlus, FiMinus } from "react-icons/fi";
+import plus from '../assets/plus.svg'
+import { white } from "../utils/colors";
 
 const AccordionSection = styled.div`
   display: flex;
@@ -9,64 +9,53 @@ const AccordionSection = styled.div`
   align-items: center;
   justify-content: center;
   position: relative;
-  height: 50vh;
-  background: #fff;
-  @media screen and (max-width: 768px) {
-    height: 80vh;
-  }
+  width: 80%;
+  margin: 0 auto;
 `;
 
 const Container = styled.div`
-  box-shadow: 2px 10px 35px 1px rgba(153, 153, 153, 0.3);
+  width: 100%;
 `;
 
 const Wrap = styled.div`
-  background: #008037;
-  color: #fff;
+  background: ${white};
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 1000px;
   text-align: center;
   cursor: pointer;
-  margin-bottom: 5px;
-
-  h1 {
-    padding: 1rem;
-    font-size: 1.5rem;
+  margin: 1%;
+  height: 120px;
+  rgba(0,0,0,0.1) 1px 1px 20px -10px;
+  h6 {
+    padding: 3rem;
   }
 
-  span {
-    margin-right: 1.5rem;
+  img {
+    margin-right: 3rem;
   }
   @media screen and (max-width: 768px) {
     width: auto;
-    h1 {
-      font-size: 1rem;
-    }
+    
   }
 `;
 
 const Dropdown = styled.div`
   background: transparent;
   color: #000;
-  width: 1000px;
-  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid #b43f39;
-  padding: 15px;
+  padding: 2%;
   transition: all 0.5s cubic-bezier(0, 1, 0, 1);
-  margin-bottom: 5px;
-
+  margin: 3%;
   p {
     font-size: 1rem;
   }
   @media screen and (max-width: 768px) {
     width: auto;
-  }
+  } 
 `;
 
 const Accordion = ({data}) => {
@@ -81,15 +70,14 @@ const Accordion = ({data}) => {
   };
 
   return (
-    <IconContext.Provider value={{ color: "#00FFB9", size: "25px" }}>
       <AccordionSection>
         <Container>
           {data.map((item, index) => {
             return (
               <>
                 <Wrap onClick={() => toggle(index)} key={index}>
-                  <h1>{item.title}</h1>
-                  <span>{clicked === index ? <FiMinus /> : <FiPlus />}</span>
+                  <h6>{item.title}</h6>
+                  <img src={plus} alt=''/>
                 </Wrap>
                 {clicked === index ? (
                   <Dropdown>
@@ -103,7 +91,6 @@ const Accordion = ({data}) => {
           })}
         </Container>
       </AccordionSection>
-    </IconContext.Provider>
   );
 };
 
